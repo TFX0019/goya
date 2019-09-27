@@ -1,0 +1,130 @@
+.containerRegister {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url(../../../assets/images/registes.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Manjari', sans-serif;
+    form {
+        width: 100%;
+    }
+
+    ion-slides {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    ion-slide {
+        width: 100%;
+    }
+
+    .formContainer {
+        width: 100%;
+        margin-left: 5%;
+
+    .inputGroup {
+        width: 90%;
+        background: #fff;
+        // border: 2px solid #fff;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 3px 20px;
+        margin-top: 5%;
+        color: #212121;
+
+        input {
+            background: none;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            // line-height: 20px;
+            margin-left: 10px;
+            margin-top: 5px;
+            padding: 8px 0;
+            color: #212121;
+            font-family: 'Manjari', sans-serif;
+            font-weight: 500;
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: #212121;
+            }
+        }
+        }
+    }
+
+    h3 {
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-family: 'Manjari', sans-serif;
+    }
+
+    .lineTitle {
+        width: 30%;
+        height: 2px;
+        background: #fff;
+        margin-top: -10px;
+    }
+
+    h2 {
+        color: #fff;
+        font-family: 'Manjari', sans-serif;
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 100;
+        font-family: 'Manjari', sans-serif;
+    }
+
+    .containerBtnSlides {
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    .btnRegister {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-family: 'Manjari', sans-serif;
+        margin-top: 5%;
+        padding-top: 8px;
+        border-radius: 25px;
+        background: #aa00ff;
+        color: #fff;
+        font-weight: 700;
+        box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.35);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    }
+    .inputCheck {
+        width: 90%;
+        text-align: right;
+    }
+}
+
+.inputElement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}

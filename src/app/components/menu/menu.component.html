@@ -1,0 +1,51 @@
+<ion-menu side="start" menuId="first" contentId="main" autoHide="true">
+  <ion-header class="header__">
+    <img src="../../../assets/images/logo.svg" width="100" height="100" alt="">
+  </ion-header>
+  <ion-content>
+    
+    
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/tabs/home">
+          <ion-label class="font-custom">
+            <ion-icon color="primary" name="apps"></ion-icon>
+            Inicio
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+              <ion-item routerLink="/profile">
+                <ion-label class="font-custom">
+                  <ion-icon name="person" color="primary"></ion-icon>
+                  Mi perfil
+                </ion-label>
+              </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle *ngIf="rol.rol == 'admin'">
+              <ion-item routerLink="/users">
+                <ion-label class="font-custom">
+                  <ion-icon color="primary" name="people"></ion-icon>
+                  Usuarios
+                </ion-label>
+              </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle *ngIf="rol.rol == 'admin'">
+      <ion-item routerLink="/categorias">
+        <ion-label class="font-custom">
+          <ion-icon color="primary" name="pricetags"></ion-icon>
+          Categorias
+        </ion-label>
+      </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+              <ion-item (click)="logout()">
+                <ion-label class="font-custom">
+                  <ion-icon color="primary" name="exit"></ion-icon>
+                  Salir
+                </ion-label>
+              </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>

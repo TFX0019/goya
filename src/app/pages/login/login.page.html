@@ -1,0 +1,51 @@
+<ion-content>
+  <div class="containerLogin">
+    <img class="logo" src="../../../assets/images/logo.svg" width="100" height="100" alt="">
+    <h3>iniciar <strong>sesión</strong></h3>
+    <form [formGroup]="loginData" (ngSubmit)="login()">
+          <div class="inputGroup">
+            <ion-icon color="primary" name="person"></ion-icon>
+            <input type="email" formControlName="email" placeholder="Email">
+          </div>
+          <div class="inputGroup">
+            <ion-icon color="primary" name="lock"></ion-icon>
+            <input type="password" formControlName="password" placeholder="Contraseña">
+          </div>
+          <div class="inputCheck">
+            <ion-toggle color="primary"></ion-toggle>
+          </div>
+          <button class="btnLogin" type="submit" [disabled]="!loginData.valid">Ingresar</button>
+    </form>
+    <h2>OR</h2>
+    <ion-button routerLink="/register" fill="clear" color="light">
+      Registrate
+    </ion-button>
+    <ion-button class="lostPass" (click)="openLostPass()" fill="clear" color="light">
+      Olvide mi contraseña
+    </ion-button>
+  </div>
+</ion-content>
+
+
+
+<!-- <ion-content>
+<div>
+    <form [formGroup]="loginData" (ngSubmit)="login()">
+      <ion-list>
+        <ion-item>
+          <ion-label>Correo Electronico:</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Password:</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-button type="submit" [disabled]="!loginData.valid" expand="full">Ingresar</ion-button>
+        </ion-item>
+      </ion-list>
+    </form>
+</div>
+</ion-content> -->

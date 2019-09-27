@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Editar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="userDataFrom" (ngSubmit)="updateProfile()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-input type="text" placeholder="Ingresa tu Nombre" formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="email" placeholder="Ingresa tu Email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Ingresa tu Numero de Telefono" formControlName="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Selecciona tu Pais</ion-label>
+          <ion-select placeholder="Seleccione un pais" cancelText="Cancelar" okText="Aceptar"
+            formControlName="pais">
+            <ion-select-option *ngFor="let p of paises" value="{{ p }}">{{ p }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Ingresa tu Ciudad" formControlName="city"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Ingresa tu Direccion" formControlName="address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fecha de Nacimiento</ion-label>
+          <ion-datetime placeholder="Fecha de nacimiento" displayFormat="DD/MM/YYYY" min="1910-03-14" max="2019-12-09"
+            cancelText="Cancelar" formControlName="fechaNac"></ion-datetime>
+        </ion-item>
+      </ion-list>
+      <ion-button color="primary" expand="full" type="submit">Aplicar Cambios</ion-button>
+  </form>
+</ion-content>

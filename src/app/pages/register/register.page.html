@@ -1,0 +1,87 @@
+<ion-content>
+  <div class="containerRegister">
+          <img class="logo" src="../../../assets/images/logo.svg" width="100" height="100" alt="">
+          <h3>Crear <strong>Cuenta</strong></h3>
+          <div class="lineTitle"></div>
+  <form [formGroup]="RDF" (ngSubmit)="addUser()">
+      <ion-slides #registerPersonal>
+        <ion-slide>
+          <div class="formContainer">
+            <div class="inputGroup">
+              <ion-icon color="primary" name="person"></ion-icon>
+              <input type="text" formControlName="name" placeholder="Nombre completo">
+            </div>
+            <div class="inputGroup">
+              <ion-icon color="primary" name="phone-portrait"></ion-icon>
+              <input type="number" formControlName="phone" placeholder="Telefono movil">
+            </div>
+
+            <div class="inputGroup">
+              <ion-icon color="primary" name="return-right"></ion-icon>
+              <input type="text" formControlName="address" placeholder="Dirección">
+            </div>
+
+            <div class="inputGroup" style="align-content: space-around;">
+              <ion-icon color="primary" name="calendar"></ion-icon>
+              <ion-datetime placeholder="Fecha de nacimiento" displayFormat="DD/MM/YYYY" min="1910-03-14"
+                max="2019-12-09" cancelText="Cancelar" formControlName="fechaNac"></ion-datetime>
+            </div>
+          </div>
+        </ion-slide>
+        <!-- form 2 -->
+        <ion-slide>
+          <div class="formContainer">
+            <div class="inputGroup">
+              <ion-icon color="primary" name="mail"></ion-icon>
+              <input type="email" formControlName="email" placeholder="Correo electronico">
+            </div>
+            <div class="inputGroup">
+              <ion-icon color="primary" name="lock"></ion-icon>
+              <input type="password" formControlName="password" placeholder="Contraseña">
+            </div>
+
+            <div class="inputGroup">
+              <ion-icon color="primary" name="lock"></ion-icon>
+              <input type="password" formControlName="repassword"
+                placeholder="Repetir contraseña">
+            </div>
+          </div>
+        </ion-slide>
+        <!-- form 3 -->
+        <ion-slide>
+          <div class="formContainer">
+            <div class="inputGroup inputElement">
+              <ion-icon color="primary" name="flag"></ion-icon>
+              <ion-select placeholder="Selecciona tu Pais" cancelText="Cancelar" okText="Aceptar"
+                formControlName="pais">
+                <ion-select-option *ngFor="let p of paises" value="{{ p }}">{{ p }}</ion-select-option>
+              </ion-select>
+            </div>
+            <div class="inputGroup">
+              <ion-icon color="primary" name="business"></ion-icon>
+              <input type="text" formControlName="city" placeholder="Ciudad">
+            </div>
+            <h3>¿Como nos conociste?</h3>
+            <div class="inputGroup">
+              <ion-icon color="primary" name="person-add"></ion-icon>
+              <input type="text" formControlName="referido" placeholder="Referido">
+            </div>
+          </div>
+        </ion-slide>
+
+      </ion-slides>
+      <!-- <a routerLink="/login">Ingresa</a> -->
+  </form>
+        <div class="containerBtnSlides">
+
+          <ion-button *ngIf="slideButtonBack" fill="clear" (click)="prevForm()">
+            <ion-icon style="color: white;" name="arrow-back"></ion-icon>
+          </ion-button>
+          <button class="btnRegister" (click)="nextForm()">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                    </button>
+        </div>
+        <h2>OR</h2>
+        <ion-button routerLink="/login" fill="clear" color="light">Ingresar</ion-button>
+  </div>
+</ion-content>

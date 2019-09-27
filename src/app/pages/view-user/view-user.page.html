@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Perfil de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <div class="portada">
+      <img class="photoProfile" *ngIf="user.image" (click)="takeFile(user.image, user.name)" src="{{ user.image }}"
+        alt="">
+      <img class="photoProfile" *ngIf="!user.image" (click)="takeFile()" src="../../../assets/images/logo.svg" alt="">
+      <h4>{{ user.name }}</h4>
+    </div>
+
+    <div class="ion-padding">
+      <h4 style="text-align: center;">MI INFORMACIÓN </h4>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="mail"></ion-icon>
+          <ion-label>
+            <p>{{ user.email }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="phone-portrait"></ion-icon>
+          <ion-label>
+            <p>{{ user.phone }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="business"></ion-icon>
+          <ion-label>
+            <p>Pais: {{ user.pais }}</p>
+            <p>Ciudad: {{ user.city }}</p>
+            <p>Direccion: {{ user.address }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="primary" slot="start" name="calendar"></ion-icon>
+          <ion-label>
+            <p>Fecha de Nacimiento: {{ user.fechaNac }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

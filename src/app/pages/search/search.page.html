@@ -1,0 +1,52 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-searchbar animated (ionChange)="buscar($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card class="adv-map" *ngFor="let p of seachPromotions | filtro: filterSearch: 'title'">
+      <div style="position: relative" class="imgCard">
+        <img src="../../../assets/images/1.png">
+        <ion-fab vertical="top" horizontal="end" slot="fixed">
+          <ion-fab-button size="small">
+            <ion-icon name="pin"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+      <ion-card-header>
+        <h5>{{ p.title }}</h5>
+      </ion-card-header>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>
+            <h2>Beneficio:</h2>
+            <p>{{ p.beneficio }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h2>Valido Hasta:</h2>
+            <p>{{ p.promotionEnd }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item actions>
+          <ion-button (click)="openPromotions(p.id)" fill="clear" slot="start">
+            <ion-icon name="paper"></ion-icon>
+            detalles
+          </ion-button>
+          <ion-button (click)="addFavorite(p)" fill="clear" slot="start">
+            <ion-icon name="heart"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+      </ion-list>
+    </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="primary" size="small" (click)="dismiss()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

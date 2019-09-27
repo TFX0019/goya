@@ -1,0 +1,7 @@
+{
+  "name": "goya",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

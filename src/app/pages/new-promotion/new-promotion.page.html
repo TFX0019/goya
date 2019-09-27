@@ -1,0 +1,152 @@
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="modalDismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="font-custom">
+      Agregar Promoción
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <h4 class="ion-text-center">Ingresa la tu Promoción</h4>
+  <form [formGroup]="promotionDataForm" (ngSubmit)="addPromotion()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-input type="text" placeholder="Titulo" formControlName="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea type="text" placeholder="Descripción" formControlName="description"></ion-textarea>
+        </ion-item>
+      <ion-item>
+        <ion-label>Selecciona una Categoria</ion-label>
+        <ion-select placeholder="Categoria" [interfaceOptions]="selectCategoriesOptions" formControlName="categoria" okText="ACEPTAR" cancelText="CANCELAR">
+          <ion-select-option *ngFor="let c of categorias" value="{{ c.title }}" class="ion-text-capitalize">
+            {{ c.title }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Beneficio" formControlName="beneficio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Telefono Celular" formControlName="phone"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-input type="url" placeholder="Sitio Web" formControlName="website"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Comienzo de la Promoción: </ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY" min="2019-08-23" max="2050-12-31" placeholder="00-00-0000" formControlName="promotionStart"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>La Promoción Termina: </ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY" min="2019-08-23" max="2050-12-31" placeholder="00-00-0000"
+          formControlName="promotionEnd"></ion-datetime>
+      </ion-item>
+      <ion-item (click)="pickFile()">
+        <ion-icon name="image" slot="start"></ion-icon>
+        <ion-label>Selecciona una Imagen</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let s of sucursales">
+        <ion-icon color="primary" name="pin" slot="start"></ion-icon>
+        <ion-label>
+          Agregado
+        </ion-label>
+        <ion-button color="danger" fill="clear" (click)="deleteUbication(s)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <ion-item (click)="addMap()">
+        <ion-icon name="map" slot="start"></ion-icon>
+        <ion-label>Agregar sucursal</ion-label>
+      </ion-item>
+      </ion-list>
+      <ion-button type="submit" color="primary" expand="full">Crear Promoción</ion-button>
+      <p *ngIf="ERR_F_PATH"> position {{ ERR_F_PATH }}</p>
+      <p *ngIf="ERR_F_CHOOSER">err {{ ERR_F_CHOOSER }}}</p>
+      <p *ngIf="promotionDataForm.value.image">image {{ promotionDataForm.value.image }}</p>
+  </form>
+
+    <!-- <p *ngIf="ERR_F_PATH"> retur: {{ ERR_F_PATH }}</p>
+    <p *ngIf="ERR_F_CHOOSER"> return: {{ downloadURL }}</p>
+  <form (ngSubmit)="addPromotion(promotion)">
+    <ion-list>
+      <ion-item (click)="pickFile()">
+        <ion-label color="primary">
+          <ion-icon name="add" slot="start"></ion-icon>
+          Agregar Imagen
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Titulo: </ion-label>
+        <ion-input type="text" name="title" [(ngModel)]="promotion.title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">N° Movil: </ion-label>
+        <ion-input name="number" name="phone" [(ngModel)]="promotion.phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Descripción: </ion-label>
+        <ion-input type="text" name="description" [(ngModel)]="promotion.description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Beneficio: </ion-label>
+        <ion-input type="text" name="beneficio" [(ngModel)]="promotion.beneficio"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Sitio Web: </ion-label>
+        <ion-input type="url" name="website" [(ngModel)]="promotion.website"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Ubicación: </ion-label>
+        <div id="getMap"></div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Categoria</ion-label>
+        <ion-select name="categoria" [interfaceOptions]="selectCategoriesOptions" interface="action-sheet"
+          [(ngModel)]="promotion.categoria" okText="ACEPTAR" cancelText="CANCELAR">
+          <ion-select-option *ngFor="let c of categorias" value="{{ c.title }}" class="ion-text-capitalize">
+            {{ c.title }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Fecha inicial: </ion-label>
+        <ion-datetime name="promotionStart" displayFormat="MM/DD/YYYY" min="2019-08-23" max="2050-12-31"
+          [(ngModel)]="promotion.promotionStart"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary">Fecha final: </ion-label>
+        <ion-datetime name="promotionEnd" displayFormat="MM/DD/YYYY" min="2019-08-23" max="2050-12-31"
+          [(ngModel)]="promotion.promotionEnd"></ion-datetime>
+      </ion-item>
+    </ion-list> -->
+  <!-- <ion-progress-bar color="primary" value="{{ uploadPercent / 100 }}"></ion-progress-bar> -->
+    <!-- <ion-button type="submit" color="primary" expand="full">Agregar Promoción</ion-button>
+
+  </form> -->
+
+    
+  <!-- <div>{{ uploadPercent | async }}</div>
+  <a [href]="downloadURL | async">dd: {{ downloadURL | async }}</a>
+  <ion-button (click)="pickFile()">Agregar imagen</ion-button>
+  <img [src]="returnPath" width="100%" alt="">
+  <img src="{{ returnPath }}" width="100%" alt="">
+  <img src="{{ ERR_F_CHOOSER }}" width="100%" alt="">
+  <p> return: {{ returnPath }}</p>
+  <p *ngIf="ERR_F_CHOOSER"> return: {{ ERR_F_CHOOSER }}</p>-->
+
+</ion-content>

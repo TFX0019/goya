@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="visor">
+    <img *ngIf="image" src="{{ image }}" alt="">
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+            <ion-button (click)="dismiss()">
+              <ion-icon name="close"></ion-icon>
+            </ion-button>
+    </ion-buttons>
+    <ion-title>{{ name }}</ion-title>
+  </ion-toolbar>
+</ion-footer>

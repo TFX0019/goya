@@ -1,0 +1,80 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-button (click)="openUbications(promotion.title)">
+          <ion-icon name="map"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Detalle de Promoción</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button (click)="addFavorite(promotion)">
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div class="promotion-details" *ngIf="promotion">
+    <div class="img-container">
+      <img src="{{ promotion.image }}" alt="">
+    </div>
+
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label>
+          <h5>{{ promotion.title }}</h5>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h6>Sitio Web:</h6>
+          <p><a (click)="openurl(promotion.website)" color="primary">{{ promotion.website }}</a></p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h6>Beneficio:</h6>
+          <p>{{ promotion.beneficio }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h6>Telefono:</h6>
+          <p>{{ promotion.phone }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h6>Descripción:</h6>
+          <p>{{ promotion.description }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h6>Ubicación:</h6>
+          <p><a (click)="openmap(promotion.ubication)">Ver en el mapa <ion-icon name="exit"></ion-icon></a></p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h6>Inicio de Promoción: {{ promotion.promotionStart }}</h6>
+          <p>Fin de Promoción: {{ promotion.promotionEnd }}</p>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" size="small" (click)="dismiss()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
