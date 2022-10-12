@@ -35,7 +35,7 @@
     "@ionic/storage": "^2.2.0",
     "com-badrit-base64": "^0.2.0",
     "cordova-android": "8.0.0",
-    "cordova-browser": "5.0.4",
+    "cordova-browser": "6.0.0",
     "cordova-plugin-filechooser": "^1.2.0",
     "cordova-plugin-filepath": "^1.5.6",
     "cordova-plugin-geolocation": "^4.0.2",
